@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>私募股权投资估值速成笔记</title>
+  <style>
+
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">私募股权投资估值速成笔记</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#私募股权投资估值速成笔记" id="toc-私募股权投资估值速成笔记">📘 私募股权投资估值速成笔记</a>
+<ul>
+<li><a href="#快速索引" id="toc-快速索引">🚀 快速索引</a></li>
+<li><a href="#一张图看完整逻辑" id="toc-一张图看完整逻辑">🗺️
+一张图看完整逻辑</a></li>
+<li><a href="#私募股权投资基础" id="toc-私募股权投资基础">1. 🏦
+私募股权投资基础</a>
+<ul>
+<li><a href="#private-equity私募股权投资" id="toc-private-equity私募股权投资">1.1 Private
+Equity，私募股权投资</a></li>
+<li><a href="#lp-与-gp" id="toc-lp-与-gp">1.2 LP 与 GP</a></li>
+<li><a href="#commitmentpaid-in-与-unfunded" id="toc-commitmentpaid-in-与-unfunded">1.3 Commitment、Paid-in 与
+Unfunded</a></li>
+</ul></li>
+<li><a href="#基金价值与回报指标" id="toc-基金价值与回报指标">2. 💰
+基金价值与回报指标</a>
+<ul>
+<li><a href="#navnet-asset-value基金净资产价值" id="toc-navnet-asset-value基金净资产价值">2.1 NAV，Net Asset
+Value，基金净资产价值</a></li>
+<li><a href="#moicmultiple-on-invested-capital投入资本倍数" id="toc-moicmultiple-on-invested-capital投入资本倍数">2.2 MOIC，Multiple
+on Invested Capital，投入资本倍数</a></li>
+<li><a href="#dpirvpi-与-tvpi" id="toc-dpirvpi-与-tvpi">2.3 DPI、RVPI 与
+TVPI</a></li>
+<li><a href="#irrinternal-rate-of-return内部收益率" id="toc-irrinternal-rate-of-return内部收益率">2.4 IRR，Internal Rate of
+Return，内部收益率</a></li>
+</ul></li>
+<li><a href="#三张财务报表勾稽" id="toc-三张财务报表勾稽">3. 📊
+三张财务报表勾稽</a>
+<ul>
+<li><a href="#三张表分别看什么" id="toc-三张表分别看什么">3.1
+三张表分别看什么</a></li>
+<li><a href="#最重要的会计恒等式" id="toc-最重要的会计恒等式">3.2
+最重要的会计恒等式</a></li>
+<li><a href="#现金勾稽" id="toc-现金勾稽">3.3 现金勾稽</a></li>
+<li><a href="#净利润为什么不等于现金流" id="toc-净利润为什么不等于现金流">3.4 净利润为什么不等于现金流</a></li>
+</ul></li>
+<li><a href="#正常化调整" id="toc-正常化调整">4. 🧹 正常化调整</a>
+<ul>
+<li><a href="#normalisation-adjustment正常化调整" id="toc-normalisation-adjustment正常化调整">Normalisation
+Adjustment，正常化调整</a></li>
+</ul></li>
+<li><a href="#公允价值框架" id="toc-公允价值框架">5. ⚖️ 公允价值框架</a>
+<ul>
+<li><a href="#fair-value公允价值" id="toc-fair-value公允价值">5.1 Fair
+Value，公允价值</a></li>
+<li><a href="#level-1level-2-和-level-3" id="toc-level-1level-2-和-level-3">5.2 Level 1、Level 2 和 Level
+3</a></li>
+<li><a href="#calibration-与-backtesting" id="toc-calibration-与-backtesting">5.3 Calibration 与
+Backtesting</a></li>
+</ul></li>
+<li><a href="#pb-模型" id="toc-pb-模型">6. 🧮 P/B 模型</a>
+<ul>
+<li><a href="#pbprice-to-book市净率" id="toc-pbprice-to-book市净率">6.1
+P/B，Price-to-Book，市净率</a></li>
+<li><a href="#例子-5" id="toc-例子-5">6.2 例子</a></li>
+<li><a href="#什么时候更适合使用-pb" id="toc-什么时候更适合使用-pb">6.3
+什么时候更适合使用 P/B</a></li>
+</ul></li>
+<li><a href="#ps-与-evsales" id="toc-ps-与-evsales">7. 🛒 P/S 与
+EV/Sales</a>
+<ul>
+<li><a href="#psprice-to-sales市销率" id="toc-psprice-to-sales市销率">7.1 P/S，Price-to-Sales，市销率</a></li>
+<li><a href="#evsales" id="toc-evsales">7.2 EV/Sales</a></li>
+<li><a href="#ps-和-evsales-的区别" id="toc-ps-和-evsales-的区别">7.3
+P/S 和 EV/Sales 的区别</a></li>
+<li><a href="#如何选择可比倍数" id="toc-如何选择可比倍数">7.4
+如何选择可比倍数</a></li>
+</ul></li>
+<li><a href="#fcffwacc-与-dcf" id="toc-fcffwacc-与-dcf">8. 💧 FCFF、WACC
+与 DCF</a>
+<ul>
+<li><a href="#fcfffree-cash-flow-to-firm企业自由现金流" id="toc-fcfffree-cash-flow-to-firm企业自由现金流">8.1 FCFF，Free Cash
+Flow to Firm，企业自由现金流</a></li>
+<li><a href="#waccweighted-average-cost-of-capital加权平均资本成本" id="toc-waccweighted-average-cost-of-capital加权平均资本成本">8.2
+WACC，Weighted Average Cost of Capital，加权平均资本成本</a></li>
+<li><a href="#为什么一年后的现金流要除以-1.1" id="toc-为什么一年后的现金流要除以-1.1">8.3 为什么一年后的现金流要除以
+1.1</a></li>
+<li><a href="#dcfdiscounted-cash-flow现金流折现法" id="toc-dcfdiscounted-cash-flow现金流折现法">8.4 DCF，Discounted Cash
+Flow，现金流折现法</a></li>
+<li><a href="#dcf-简单例子" id="toc-dcf-简单例子">8.5 DCF
+简单例子</a></li>
+</ul></li>
+<li><a href="#cfs-与-dcf-的关系" id="toc-cfs-与-dcf-的关系">9. 🌊 CFS 与
+DCF 的关系</a>
+<ul>
+<li><a href="#cfs" id="toc-cfs">CFS</a></li>
+<li><a href="#dcf" id="toc-dcf">DCF</a></li>
+</ul></li>
+<li><a href="#常见估值方法对比" id="toc-常见估值方法对比">10. 🔄
+常见估值方法对比</a>
+<ul>
+<li><a href="#从公司估值到基金-nav" id="toc-从公司估值到基金-nav">10.1
+从公司估值到基金 NAV</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p><a id="top"></a></p>
+<h1 id="私募股权投资估值速成笔记">📘 私募股权投资估值速成笔记</h1>
+<blockquote>
+<p>🎯
+用途：快速理解私募股权投资估值项目中的基金结构、财务报表、公允价值以及
+P/B、P/S、EV/Sales、DCF 和 CFS。<br />
+🍜 统一案例：虚构未上市企业——<strong>禾味餐厅</strong>。<br />
+💡 公式统一采用 GitHub 支持的 LaTeX，并全部写成单行
+<code>$$...$$</code>，避免多行公式在部分客户端中被拆成乱码。</p>
+</blockquote>
+<hr />
+<h2 id="快速索引">🚀 快速索引</h2>
+<ul>
+<li><a href="#overview">一张图看完整逻辑</a></li>
+<li><a href="#pe-basics">1. 私募股权投资基础</a></li>
+<li><a href="#fund-metrics">2. 基金价值与回报指标</a></li>
+<li><a href="#financial-statements">3. 三张财务报表勾稽</a></li>
+<li><a href="#normalisation">4. 正常化调整</a></li>
+<li><a href="#fair-value">5. 公允价值框架</a></li>
+<li><a href="#pb-model">6. P/B 模型</a></li>
+<li><a href="#ps-ev-sales">7. P/S 与 EV/Sales</a></li>
+<li><a href="#dcf">8. FCFF、WACC 与 DCF</a></li>
+<li><a href="#cfs-dcf">9. CFS 与 DCF 的关系</a></li>
+<li><a href="#model-comparison">10. 常见估值方法对比</a></li>
+</ul>
+<hr />
+<p><a id="overview"></a></p>
+<h2 id="一张图看完整逻辑">🗺️ 一张图看完整逻辑</h2>
+<pre class="text"><code>LP 出资
+  ↓
+私募基金 / SPV
+  ↓
+投资被投企业
+  ↓
+读取三张财务报表
+  ↓
+统一口径 + 正常化调整
+  ↓
+P/B、P/S、EV/Sales、DCF / CFS 估值
+  ↓
+得到企业价值 EV 或股权价值
+  ↓
+计算基金持有股权价值、NAV、MOIC、IRR</code></pre>
+<hr />
+<p><a id="pe-basics"></a></p>
+<h2 id="私募股权投资基础">1. 🏦 私募股权投资基础</h2>
+<h3 id="private-equity私募股权投资">1.1 Private
+Equity，私募股权投资</h3>
+<p><strong>一句话：</strong><br />
+私募股权投资就是投资未上市公司的股权，等待公司成长后通过上市、并购或股权转让退出。</p>
+<p><strong>比喻：</strong><br />
+你不是借钱给餐厅，而是买下餐厅的一部分；餐厅越值钱，你的股份越值钱。</p>
+<h4 id="常见类型">常见类型</h4>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>最简单理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Private Equity，PE</td>
+<td>私募股权投资</td>
+<td>广义的未上市股权投资</td>
+</tr>
+<tr>
+<td>Venture Capital，VC</td>
+<td>风险投资</td>
+<td>投早期、高成长、高风险公司</td>
+</tr>
+<tr>
+<td>Growth Equity</td>
+<td>成长型股权投资</td>
+<td>投已经证明商业模式、准备扩张的公司</td>
+</tr>
+<tr>
+<td>Buyout</td>
+<td>控股收购</td>
+<td>买下公司控制权，可能使用较高杠杆</td>
+</tr>
+<tr>
+<td>Private Credit</td>
+<td>私募信贷</td>
+<td>借钱给企业，主要赚利息，不是买普通股</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="lp-与-gp">1.2 LP 与 GP</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limited Partner，LP</td>
+<td>有限合伙人</td>
+<td>主要负责出钱</td>
+</tr>
+<tr>
+<td>General Partner，GP</td>
+<td>普通合伙人</td>
+<td>主要负责管理基金和投资决策</td>
+</tr>
+<tr>
+<td>Fund Manager</td>
+<td>基金管理人</td>
+<td>真正做项目筛选、尽调、估值和投后管理的团队</td>
+</tr>
+<tr>
+<td>SPV</td>
+<td>特殊目的载体</td>
+<td>为某一个项目专门设立的持股公司</td>
+</tr>
+</tbody>
+</table>
+<p>🍱 <strong>比喻：</strong></p>
+<ul>
+<li>LP：出钱开餐厅的人；</li>
+<li>GP：决定投哪家餐厅的人；</li>
+<li>SPV：专门装某一家餐厅股份的盒子。</li>
+</ul>
+<h4 id="最常见结构">最常见结构</h4>
+<pre class="text"><code>LP → 私募基金 → SPV → 被投企业</code></pre>
+<hr />
+<h3 id="commitmentpaid-in-与-unfunded">1.3 Commitment、Paid-in 与
+Unfunded</h3>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Commitment</td>
+<td>认缴出资额</td>
+<td>LP 承诺最多出多少钱</td>
+</tr>
+<tr>
+<td>Capital Call</td>
+<td>缴款通知</td>
+<td>基金正式通知 LP 打款</td>
+</tr>
+<tr>
+<td>Paid-in Capital</td>
+<td>实缴资本</td>
+<td>LP 已经真正打进基金的钱</td>
+</tr>
+<tr>
+<td>Unfunded Commitment</td>
+<td>未实缴承诺</td>
+<td>未来仍可能需要缴纳的钱</td>
+</tr>
+</tbody>
+</table>
+<h4 id="公式">公式</h4>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">未实缴承诺</mtext><mo>=</mo><mtext mathvariant="normal">认缴出资额</mtext><mo>−</mo><mtext mathvariant="normal">实缴资本</mtext></mrow><annotation encoding="application/x-tex">\text{未实缴承诺}=\text{认缴出资额}-\text{实缴资本}</annotation></semantics></math></p>
+<h4 id="例子">例子</h4>
+<p>星河保险承诺出资 10,000 万元，目前实际缴纳 6,000 万元：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">未实缴承诺</mtext><mo>=</mo><mn>10</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>6</mn><mo>,</mo><mn>000</mn><mo>=</mo><mn>4</mn><mo>,</mo><mn>000</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{未实缴承诺}=10{,}000-6{,}000=4{,}000\text{ 万元}</annotation></semantics></math></p>
+<p>未来仍可能被基金要求缴纳 4,000 万元。</p>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="fund-metrics"></a></p>
+<h2 id="基金价值与回报指标">2. 💰 基金价值与回报指标</h2>
+<h3 id="navnet-asset-value基金净资产价值">2.1 NAV，Net Asset
+Value，基金净资产价值</h3>
+<p><strong>一句话：</strong><br />
+NAV 是基金当前所有资产的公允价值减去基金负债后的净价值。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">N</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">V</mi></mrow><mo>=</mo><mtext mathvariant="normal">基金资产公允价值</mtext><mo>−</mo><mtext mathvariant="normal">基金负债</mtext></mrow><annotation encoding="application/x-tex">\mathrm{NAV}=\text{基金资产公允价值}-\text{基金负债}</annotation></semantics></math></p>
+<p>例如，基金持有项目的公允价值合计 12,000 万元，另有现金 500
+万元、应付管理费 300 万元：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">N</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">V</mi></mrow><mo>=</mo><mn>12</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>500</mn><mo>−</mo><mn>300</mn><mo>=</mo><mn>12</mn><mo>,</mo><mn>200</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\mathrm{NAV}=12{,}000+500-300=12{,}200\text{ 万元}</annotation></semantics></math></p>
+<p><strong>比喻：</strong><br />
+把基金持有的所有餐厅股份当前价值加起来，再减掉基金欠的钱，就是 NAV。</p>
+<h4 id="对估值的影响">对估值的影响</h4>
+<blockquote>
+<p>被投企业估值上升 → 基金 NAV 上升<br />
+被投企业估值下降 → 基金 NAV 下降</p>
+</blockquote>
+<hr />
+<h3 id="moicmultiple-on-invested-capital投入资本倍数">2.2 MOIC，Multiple
+on Invested Capital，投入资本倍数</h3>
+<p><strong>一句话：</strong><br />
+MOIC 看一笔投资目前总共形成了多少倍价值。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">C</mi></mrow><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">已实现价值</mtext><mo>+</mo><mtext mathvariant="normal">未实现价值</mtext></mrow><mtext mathvariant="normal">累计投入资本</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{MOIC}=\frac{\text{已实现价值}+\text{未实现价值}}{\text{累计投入资本}}</annotation></semantics></math></p>
+<h4 id="例子-1">例子</h4>
+<p>基金投资禾味餐厅 10,000 万元：</p>
+<ul>
+<li>已收到分红：1,000 万元；</li>
+<li>当前剩余股权价值：15,000 万元。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">C</mi></mrow><mo>=</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>15</mn><mo>,</mo><mn>000</mn></mrow><mrow><mn>10</mn><mo>,</mo><mn>000</mn></mrow></mfrac><mo>=</mo><mn>1.6</mn><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{MOIC}=\frac{1{,}000+15{,}000}{10{,}000}=1.6\mathrm{x}</annotation></semantics></math></p>
+<p>每投入 1 元，目前形成 1.6 元总价值。</p>
+<blockquote>
+<p>⚠️ MOIC 不考虑时间。2 年实现 1.6x 和 10 年实现 1.6x，MOIC 相同。</p>
+</blockquote>
+<hr />
+<h3 id="dpirvpi-与-tvpi">2.3 DPI、RVPI 与 TVPI</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>中文</th>
+<th>看什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPI</td>
+<td>已分配资本倍数</td>
+<td>已经真正拿回多少现金</td>
+</tr>
+<tr>
+<td>RVPI</td>
+<td>剩余价值倍数</td>
+<td>账面上还剩多少未实现价值</td>
+</tr>
+<tr>
+<td>TVPI</td>
+<td>总价值倍数</td>
+<td>已实现和未实现价值合计多少倍</td>
+</tr>
+</tbody>
+</table>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mtext mathvariant="normal">累计分配</mtext><mtext mathvariant="normal">累计实缴资本</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{DPI}=\frac{\text{累计分配}}{\text{累计实缴资本}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mtext mathvariant="normal">剩余 NAV</mtext><mtext mathvariant="normal">累计实缴资本</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{RVPI}=\frac{\text{剩余 NAV}}{\text{累计实缴资本}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>+</mo><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">累计分配</mtext><mo>+</mo><mtext mathvariant="normal">剩余 NAV</mtext></mrow><mtext mathvariant="normal">累计实缴资本</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{TVPI}=\mathrm{DPI}+\mathrm{RVPI}=\frac{\text{累计分配}+\text{剩余 NAV}}{\text{累计实缴资本}}</annotation></semantics></math></p>
+<h4 id="例子-2">例子</h4>
+<p>某 LP：</p>
+<ul>
+<li>累计实缴：6,000 万元；</li>
+<li>已收到分配：2,000 万元；</li>
+<li>剩余 NAV：7,500 万元。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mrow><mn>2</mn><mo>,</mo><mn>000</mn></mrow><mrow><mn>6</mn><mo>,</mo><mn>000</mn></mrow></mfrac><mo>≈</mo><mn>0.33</mn><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{DPI}=\frac{2{,}000}{6{,}000}\approx0.33\mathrm{x}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mfrac><mrow><mn>7</mn><mo>,</mo><mn>500</mn></mrow><mrow><mn>6</mn><mo>,</mo><mn>000</mn></mrow></mfrac><mo>=</mo><mn>1.25</mn><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{RVPI}=\frac{7{,}500}{6{,}000}=1.25\mathrm{x}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">I</mi></mrow><mo>=</mo><mn>0.33</mn><mo>+</mo><mn>1.25</mn><mo>=</mo><mn>1.58</mn><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{TVPI}=0.33+1.25=1.58\mathrm{x}</annotation></semantics></math></p>
+<h4 id="对估值的影响-1">对估值的影响</h4>
+<ul>
+<li>DPI 主要来自真实现金，受估值影响较小；</li>
+<li>RVPI 直接依赖 NAV，因此最受估值影响；</li>
+<li>TVPI 中未实现部分越高，估值不确定性越大。</li>
+</ul>
+<hr />
+<h3 id="irrinternal-rate-of-return内部收益率">2.4 IRR，Internal Rate of
+Return，内部收益率</h3>
+<p><strong>一句话：</strong><br />
+IRR 是考虑资金投入和回收时间后的年化回报率。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><mfrac><mrow><mi>C</mi><msub><mi>F</mi><mi>t</mi></msub></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mi>t</mi></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">0=\sum_{t=0}^{n}\frac{CF_t}{(1+\mathrm{IRR})^t}</annotation></semantics></math></p>
+<p>其中，投资人付出的资金记为负数，收到的分红、退出款或期末 NAV
+记为正数。</p>
+<h4 id="一次投入一次退出">一次投入、一次退出</h4>
+<p>基金期初投资 1,000 万元，2 年后收回 1,600 万元：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>000</mn><mo>+</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>600</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">0=-1{,}000+\frac{1{,}600}{(1+\mathrm{IRR})^2}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>600</mn></mrow><mrow><mn>1</mn><mo>,</mo><mn>000</mn></mrow></mfrac><mo>=</mo><mn>1.6</mn></mrow><annotation encoding="application/x-tex">(1+\mathrm{IRR})^2=\frac{1{,}600}{1{,}000}=1.6</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><mo>=</mo><msqrt><mn>1.6</mn></msqrt><mo>−</mo><mn>1</mn><mo>≈</mo><mn>26.49</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\mathrm{IRR}=\sqrt{1.6}-1\approx26.49\%</annotation></semantics></math></p>
+<h4 id="期间有多次分配">期间有多次分配</h4>
+<table>
+<thead>
+<tr>
+<th>时点</th>
+<th style="text-align: right;">期初</th>
+<th style="text-align: right;">第 1 年</th>
+<th style="text-align: right;">第 2 年</th>
+<th style="text-align: right;">第 3 年</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现金流（万元）</td>
+<td style="text-align: right;">-1,000</td>
+<td style="text-align: right;">+200</td>
+<td style="text-align: right;">+300</td>
+<td style="text-align: right;">+800</td>
+</tr>
+</tbody>
+</table>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>000</mn><mo>+</mo><mfrac><mn>200</mn><mrow><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow></mrow></mfrac><mo>+</mo><mfrac><mn>300</mn><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mn>800</mn><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">0=-1{,}000+\frac{200}{1+\mathrm{IRR}}+\frac{300}{(1+\mathrm{IRR})^2}+\frac{800}{(1+\mathrm{IRR})^3}</annotation></semantics></math></p>
+<p>这类多期方程通常使用 Excel：</p>
+<pre class="excel"><code>=IRR(现金流区域)</code></pre>
+<p>本例：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">I</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">R</mi></mrow><mo>≈</mo><mn>11.40</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\mathrm{IRR}\approx11.40\%</annotation></semantics></math></p>
+<p>若现金流日期不等间隔，应使用：</p>
+<pre class="excel"><code>=XIRR(现金流区域, 日期区域)</code></pre>
+<h4 id="对估值的影响-2">对估值的影响</h4>
+<p>阶段性 IRR 通常把期末 NAV 当作最后一期正现金流：</p>
+<blockquote>
+<p>NAV 上调 → 阶段性 IRR 上升<br />
+NAV 下调 → 阶段性 IRR 下降</p>
+</blockquote>
+<blockquote>
+<p>⚠️ IRR 是投资回报指标，不是 DCF 模型中的 WACC。</p>
+</blockquote>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="financial-statements"></a></p>
+<h2 id="三张财务报表勾稽">3. 📊 三张财务报表勾稽</h2>
+<h3 id="三张表分别看什么">3.1 三张表分别看什么</h3>
+<table>
+<thead>
+<tr>
+<th>报表</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Balance Sheet，资产负债表</td>
+<td>公司现在有什么、欠什么、股东还剩什么</td>
+</tr>
+<tr>
+<td>Income Statement，利润表</td>
+<td>公司一段时间赚了多少钱</td>
+</tr>
+<tr>
+<td>Cash Flow Statement，现金流量表</td>
+<td>现金从哪里来、到哪里去</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="最重要的会计恒等式">3.2 最重要的会计恒等式</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">资产</mtext><mo>=</mo><mtext mathvariant="normal">负债</mtext><mo>+</mo><mtext mathvariant="normal">所有者权益</mtext></mrow><annotation encoding="application/x-tex">\text{资产}=\text{负债}+\text{所有者权益}</annotation></semantics></math></p>
+<p>所以：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">账面净资产</mtext><mo>=</mo><mtext mathvariant="normal">资产</mtext><mo>−</mo><mtext mathvariant="normal">负债</mtext></mrow><annotation encoding="application/x-tex">\text{账面净资产}=\text{资产}-\text{负债}</annotation></semantics></math></p>
+<p>✅ 净资产可以直接从资产负债表得到。</p>
+<hr />
+<h3 id="现金勾稽">3.3 现金勾稽</h3>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFO</td>
+<td>经营活动现金流</td>
+</tr>
+<tr>
+<td>CFI</td>
+<td>投资活动现金流</td>
+</tr>
+<tr>
+<td>CFF</td>
+<td>筹资活动现金流</td>
+</tr>
+</tbody>
+</table>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">期末现金</mtext><mo>=</mo><mtext mathvariant="normal">期初现金</mtext><mo>+</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">O</mi></mrow><mo>+</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">I</mi></mrow><mo>+</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">F</mi></mrow><mo>+</mo><mtext mathvariant="normal">汇率变动影响</mtext></mrow><annotation encoding="application/x-tex">\text{期末现金}=\text{期初现金}+\mathrm{CFO}+\mathrm{CFI}+\mathrm{CFF}+\text{汇率变动影响}</annotation></semantics></math></p>
+<h4 id="例子-3">例子</h4>
+<p>禾味餐厅：</p>
+<ul>
+<li>期初现金：1,200；</li>
+<li>CFO：+2,100；</li>
+<li>CFI：−1,500；</li>
+<li>CFF：−300。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">期末现金</mtext><mo>=</mo><mn>1</mn><mo>,</mo><mn>200</mn><mo>+</mo><mn>2</mn><mo>,</mo><mn>100</mn><mo>−</mo><mn>1</mn><mo>,</mo><mn>500</mn><mo>−</mo><mn>300</mn><mo>=</mo><mn>1</mn><mo>,</mo><mn>500</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{期末现金}=1{,}200+2{,}100-1{,}500-300=1{,}500\text{ 万元}</annotation></semantics></math></p>
+<hr />
+<h3 id="净利润为什么不等于现金流">3.4 净利润为什么不等于现金流</h3>
+<p>假设：</p>
+<ul>
+<li>净利润：2,000；</li>
+<li>折旧摊销：1,000；</li>
+<li>应收账款增加：800；</li>
+<li>存货增加：400；</li>
+<li>应付账款增加：300。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">O</mi></mrow><mo>=</mo><mn>2</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>800</mn><mo>−</mo><mn>400</mn><mo>+</mo><mn>300</mn><mo>=</mo><mn>2</mn><mo>,</mo><mn>100</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\mathrm{CFO}=2{,}000+1{,}000-800-400+300=2{,}100\text{ 万元}</annotation></semantics></math></p>
+<h4 id="最简单理解">最简单理解</h4>
+<ul>
+<li>折旧摊销：不是本期现金流出，所以加回；</li>
+<li>应收账款增加：收入确认了但没收到钱，所以扣除；</li>
+<li>存货增加：提前花钱备货，所以扣除；</li>
+<li>应付账款增加：暂时没有向供应商付款，所以加回。</li>
+</ul>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="normalisation"></a></p>
+<h2 id="正常化调整">4. 🧹 正常化调整</h2>
+<h3 id="normalisation-adjustment正常化调整">Normalisation
+Adjustment，正常化调整</h3>
+<p><strong>一句话：</strong><br />
+把一次性、异常或不符合市场水平的收入费用调整掉，让利润更接近未来可持续水平。</p>
+<h4 id="只记三个判断问题">只记三个判断问题</h4>
+<ol type="1">
+<li>这项收入或费用未来会不会持续？</li>
+<li>它是不是一次性或异常项目？</li>
+<li>正常市场买方会不会在定价时考虑？</li>
+</ol>
+<h4 id="例子-4">例子</h4>
+<p>禾味餐厅报告 EBITDA 为 4,000 万元：</p>
+<ul>
+<li>一次性政府补助：300；</li>
+<li>一次性诉讼费用：600；</li>
+<li>创始人薪酬比市场水平少 100。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">调整后 EBITDA</mtext><mo>=</mo><mn>4</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>300</mn><mo>+</mo><mn>600</mn><mo>−</mo><mn>100</mn><mo>=</mo><mn>4</mn><mo>,</mo><mn>200</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{调整后 EBITDA}=4{,}000-300+600-100=4{,}200\text{ 万元}</annotation></semantics></math></p>
+<h4 id="对估值的影响-3">对估值的影响</h4>
+<p>正常化调整会改变：</p>
+<ul>
+<li>EBITDA；</li>
+<li>净利润；</li>
+<li>净资产；</li>
+<li>FCFF；</li>
+<li>最终估值结果。</li>
+</ul>
+<blockquote>
+<p>⚠️ 不能为了提高估值随意加回费用，每一项调整都需要证据。</p>
+</blockquote>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="fair-value"></a></p>
+<h2 id="公允价值框架">5. ⚖️ 公允价值框架</h2>
+<h3 id="fair-value公允价值">5.1 Fair Value，公允价值</h3>
+<p><strong>一句话：</strong><br />
+公允价值是估值日市场参与者在有序交易中出售资产可以收到的价格。</p>
+<h4 id="必记概念">必记概念</h4>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>最简单解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Measurement Date</td>
+<td>估值计量日</td>
+<td>估值对应哪一天</td>
+</tr>
+<tr>
+<td>Market Participant</td>
+<td>市场参与者</td>
+<td>正常市场买方，而不是公司自己的愿望</td>
+</tr>
+<tr>
+<td>Orderly Transaction</td>
+<td>有序交易</td>
+<td>不是被迫甩卖</td>
+</tr>
+<tr>
+<td>Exit Price</td>
+<td>退出价格</td>
+<td>在估值日出售能够收到多少钱</td>
+</tr>
+<tr>
+<td>Observable Inputs</td>
+<td>可观察输入</td>
+<td>市场报价、上市公司倍数</td>
+</tr>
+<tr>
+<td>Unobservable Inputs</td>
+<td>不可观察输入</td>
+<td>管理层预测、公司特定风险</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="level-1level-2-和-level-3">5.2 Level 1、Level 2 和 Level 3</h3>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level 1</td>
+<td>相同资产在活跃市场中的公开报价</td>
+</tr>
+<tr>
+<td>Level 2</td>
+<td>类似资产报价或其他可观察参数</td>
+</tr>
+<tr>
+<td>Level 3</td>
+<td>大量依赖模型和不可观察假设</td>
+</tr>
+</tbody>
+</table>
+<p>私募股权通常大量使用 Level 3 输入，因为不存在直接公开报价。</p>
+<h4 id="对估值的影响-4">对估值的影响</h4>
+<p>Level 3 输入越多：</p>
+<ul>
+<li>模型判断越重要；</li>
+<li>假设记录越重要；</li>
+<li>审计和复核风险越高。</li>
+</ul>
+<hr />
+<h3 id="calibration-与-backtesting">5.3 Calibration 与 Backtesting</h3>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calibration</td>
+<td>校准</td>
+<td>用初始交易价格检查模型当时是否合理</td>
+</tr>
+<tr>
+<td>Backtesting</td>
+<td>回溯检验</td>
+<td>用后续融资或退出结果检查历史估值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>比喻：</strong></p>
+<ul>
+<li>Calibration：看当初买餐厅时，模型能不能解释成交价格；</li>
+<li>Backtesting：后来餐厅真的融资或卖掉后，检查以前为什么估高或估低。</li>
+</ul>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="pb-model"></a></p>
+<h2 id="pb-模型">6. 🧮 P/B 模型</h2>
+<h3 id="pbprice-to-book市净率">6.1 P/B，Price-to-Book，市净率</h3>
+<p><strong>一句话：</strong><br />
+P/B 表示市场愿意为每 1 元账面净资产支付多少股权价值。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">P</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">B</mi></mrow><mo>=</mo><mfrac><mtext mathvariant="normal">股权价值</mtext><mtext mathvariant="normal">账面净资产</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{P/B}=\frac{\text{股权价值}}{\text{账面净资产}}</annotation></semantics></math></p>
+<p>用于私募估值时：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">隐含股权价值</mtext><mo>=</mo><mtext mathvariant="normal">选定 P/B</mtext><mo>×</mo><mtext mathvariant="normal">调整后净资产</mtext></mrow><annotation encoding="application/x-tex">\text{隐含股权价值}=\text{选定 P/B}\times\text{调整后净资产}</annotation></semantics></math></p>
+<hr />
+<h3 id="例子-5">6.2 例子</h3>
+<p>禾味餐厅：</p>
+<ul>
+<li>账面净资产：12,000；</li>
+<li>扣除缺乏支持的商誉：1,000；</li>
+<li>加回土地公允价值增值：500。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">调整后净资产</mtext><mo>=</mo><mn>12</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>500</mn><mo>=</mo><mn>11</mn><mo>,</mo><mn>500</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{调整后净资产}=12{,}000-1{,}000+500=11{,}500\text{ 万元}</annotation></semantics></math></p>
+<p>可比公司 P/B 中位数为
+1.8x，但禾味餐厅规模更小、资产质量略差，因此选取 1.6x：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mn>11</mn><mo>,</mo><mn>500</mn><mo>×</mo><mn>1.6</mn><mo>=</mo><mn>18</mn><mo>,</mo><mn>400</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{股权价值}=11{,}500\times1.6=18{,}400\text{ 万元}</annotation></semantics></math></p>
+<hr />
+<h3 id="什么时候更适合使用-pb">6.3 什么时候更适合使用 P/B</h3>
+<p>更适合：</p>
+<ul>
+<li>银行、保险、券商；</li>
+<li>重资产公司；</li>
+<li>净资产能够反映主要经济价值的公司。</li>
+</ul>
+<p>相对不适合：</p>
+<ul>
+<li>轻资产互联网企业；</li>
+<li>品牌、数据和技术价值远高于账面资产的企业；</li>
+<li>净资产很小或为负的企业。</li>
+</ul>
+<h4 id="影响-pb-的核心因素">影响 P/B 的核心因素</h4>
+<ul>
+<li>ROE 越高且越可持续，合理 P/B 通常越高；</li>
+<li>资产质量越差，合理 P/B 通常越低；</li>
+<li>风险越高，合理 P/B 通常越低。</li>
+</ul>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="ps-ev-sales"></a></p>
+<h2 id="ps-与-evsales">7. 🛒 P/S 与 EV/Sales</h2>
+<h3 id="psprice-to-sales市销率">7.1 P/S，Price-to-Sales，市销率</h3>
+<p><strong>一句话：</strong><br />
+P/S 表示市场愿意为每 1 元营业收入支付多少股权价值。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">P</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">S</mi></mrow><mo>=</mo><mfrac><mtext mathvariant="normal">股权价值</mtext><mtext mathvariant="normal">营业收入</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{P/S}=\frac{\text{股权价值}}{\text{营业收入}}</annotation></semantics></math></p>
+<p>用于估值时：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mtext mathvariant="normal">营业收入</mtext><mo>×</mo><mtext mathvariant="normal">选定 P/S</mtext></mrow><annotation encoding="application/x-tex">\text{股权价值}=\text{营业收入}\times\text{选定 P/S}</annotation></semantics></math></p>
+<h4 id="例子-6">例子</h4>
+<p>禾味餐厅营业收入为 25,000 万元，选定 P/S 为 1.1x：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mn>25</mn><mo>,</mo><mn>000</mn><mo>×</mo><mn>1.1</mn><mo>=</mo><mn>27</mn><mo>,</mo><mn>500</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{股权价值}=25{,}000\times1.1=27{,}500\text{ 万元}</annotation></semantics></math></p>
+<hr />
+<h3 id="evsales">7.2 EV/Sales</h3>
+<p><strong>一句话：</strong><br />
+EV/Sales 表示每 1 元营业收入对应多少企业整体价值。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">E</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mrow><mo>=</mo><mfrac><mtext mathvariant="normal">企业价值 EV</mtext><mtext mathvariant="normal">营业收入</mtext></mfrac></mrow><annotation encoding="application/x-tex">\mathrm{EV/Sales}=\frac{\text{企业价值 EV}}{\text{营业收入}}</annotation></semantics></math></p>
+<p>用于估值时：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">企业价值 EV</mtext><mo>=</mo><mtext mathvariant="normal">营业收入</mtext><mo>×</mo><mtext mathvariant="normal">选定 EV/Sales</mtext></mrow><annotation encoding="application/x-tex">\text{企业价值 EV}=\text{营业收入}\times\text{选定 EV/Sales}</annotation></semantics></math></p>
+<p>然后：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mtext mathvariant="normal">企业价值 EV</mtext><mo>−</mo><mtext mathvariant="normal">有息债务</mtext><mo>+</mo><mtext mathvariant="normal">现金及现金等价物</mtext></mrow><annotation encoding="application/x-tex">\text{股权价值}=\text{企业价值 EV}-\text{有息债务}+\text{现金及现金等价物}</annotation></semantics></math></p>
+<p>实务中还可能考虑租赁负债、少数股东权益、优先股和非经营性资产等项目，关键是保证口径一致。</p>
+<h4 id="例子-7">例子</h4>
+<p>禾味餐厅：</p>
+<ul>
+<li>营业收入：25,000；</li>
+<li>EV/Sales：1.2x；</li>
+<li>有息债务：5,000；</li>
+<li>现金及现金等价物：1,500。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">企业价值 EV</mtext><mo>=</mo><mn>25</mn><mo>,</mo><mn>000</mn><mo>×</mo><mn>1.2</mn><mo>=</mo><mn>30</mn><mo>,</mo><mn>000</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{企业价值 EV}=25{,}000\times1.2=30{,}000\text{ 万元}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mn>30</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>5</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>1</mn><mo>,</mo><mn>500</mn><mo>=</mo><mn>26</mn><mo>,</mo><mn>500</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{股权价值}=30{,}000-5{,}000+1{,}500=26{,}500\text{ 万元}</annotation></semantics></math></p>
+<hr />
+<h3 id="ps-和-evsales-的区别">7.3 P/S 和 EV/Sales 的区别</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>分子</th>
+<th>首先得到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P/S</td>
+<td>股权价值</td>
+<td>股权价值</td>
+</tr>
+<tr>
+<td>EV/Sales</td>
+<td>企业价值 EV</td>
+<td>企业价值 EV</td>
+</tr>
+</tbody>
+</table>
+<p>当不同公司的债务水平差异较大时，EV/Sales
+通常更容易比较企业经营业务本身。</p>
+<hr />
+<h3 id="如何选择可比倍数">7.4 如何选择可比倍数</h3>
+<p>LTM 指最近 12 个月实际数据；NTM 指未来 12
+个月预测数据。倍数和目标公司财务指标必须使用一致期间。</p>
+<pre class="text"><code>寻找同行业公司
+  ↓
+剔除业务模式差异过大的公司
+  ↓
+统一 LTM / NTM 和会计口径
+  ↓
+计算可比公司倍数中位数
+  ↓
+根据目标公司的增长、利润率、规模和风险调整</code></pre>
+<table>
+<thead>
+<tr>
+<th>目标公司表现</th>
+<th>倍数倾向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增长更快</td>
+<td>上调</td>
+</tr>
+<tr>
+<td>毛利率更高</td>
+<td>上调</td>
+</tr>
+<tr>
+<td>现金转化更好</td>
+<td>上调</td>
+</tr>
+<tr>
+<td>规模更小</td>
+<td>下调</td>
+</tr>
+<tr>
+<td>客户或地区更集中</td>
+<td>下调</td>
+</tr>
+<tr>
+<td>持续亏损</td>
+<td>下调</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 中位数只是起点，不是最终答案。</p>
+</blockquote>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="dcf"></a></p>
+<h2 id="fcffwacc-与-dcf">8. 💧 FCFF、WACC 与 DCF</h2>
+<h3 id="fcfffree-cash-flow-to-firm企业自由现金流">8.1 FCFF，Free Cash
+Flow to Firm，企业自由现金流</h3>
+<p><strong>一句话：</strong><br />
+FCFF
+是企业经营并完成必要投资后，可以提供给股东和债权人的自由现金流。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mrow><mi mathvariant="normal">E</mi><mi mathvariant="normal">B</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">T</mi></mrow><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mtext mathvariant="normal">所得税率</mtext><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mtext mathvariant="normal">折旧与摊销</mtext><mo>−</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">x</mi></mrow><mo>−</mo><mtext mathvariant="normal">净营运资本增加额</mtext></mrow><annotation encoding="application/x-tex">\mathrm{FCFF}=\mathrm{EBIT}\times(1-\text{所得税率})+\text{折旧与摊销}-\mathrm{CapEx}-\text{净营运资本增加额}</annotation></semantics></math></p>
+<h4 id="例子-8">例子</h4>
+<p>禾味餐厅：</p>
+<ul>
+<li>EBIT：3,000；</li>
+<li>所得税率：25%；</li>
+<li>折旧与摊销：1,000；</li>
+<li>CapEx：1,500；</li>
+<li>净营运资本增加额：900。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mn>3</mn><mo>,</mo><mn>000</mn><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>25</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>1</mn><mo>,</mo><mn>000</mn><mo>−</mo><mn>1</mn><mo>,</mo><mn>500</mn><mo>−</mo><mn>900</mn><mo>=</mo><mn>850</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\mathrm{FCFF}=3{,}000\times(1-25\%)+1{,}000-1{,}500-900=850\text{ 万元}</annotation></semantics></math></p>
+<hr />
+<h3 id="waccweighted-average-cost-of-capital加权平均资本成本">8.2
+WACC，Weighted Average Cost of Capital，加权平均资本成本</h3>
+<p><strong>一句话：</strong><br />
+WACC 是股东和债权人对企业整体要求的平均回报率。</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">C</mi></mrow><mo>=</mo><mtext mathvariant="normal">股权占比</mtext><mo>×</mo><mtext mathvariant="normal">股权资本成本</mtext><mo>+</mo><mtext mathvariant="normal">债务占比</mtext><mo>×</mo><mtext mathvariant="normal">税前债务成本</mtext><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mtext mathvariant="normal">所得税率</mtext><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\mathrm{WACC}=\text{股权占比}\times\text{股权资本成本}+\text{债务占比}\times\text{税前债务成本}\times(1-\text{所得税率})</annotation></semantics></math></p>
+<h4 id="例子-9">例子</h4>
+<p>假设：</p>
+<ul>
+<li>股权占比：70%；</li>
+<li>债务占比：30%；</li>
+<li>股权资本成本：15%；</li>
+<li>税前债务成本：6%；</li>
+<li>所得税率：25%。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">C</mi></mrow><mo>=</mo><mn>70</mn><mi>%</mi><mo>×</mo><mn>15</mn><mi>%</mi><mo>+</mo><mn>30</mn><mi>%</mi><mo>×</mo><mn>6</mn><mi>%</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>25</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>11.85</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\mathrm{WACC}=70\%\times15\%+30\%\times6\%\times(1-25\%)=11.85\%</annotation></semantics></math></p>
+<p>WACC 越高，未来现金流折现后的现值通常越低。</p>
+<hr />
+<h3 id="为什么一年后的现金流要除以-1.1">8.3 为什么一年后的现金流要除以
+1.1</h3>
+<p>假设 WACC 为 10%，一年后收到 1,100 万元：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">现值</mtext><mo>=</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>100</mn></mrow><mrow><mn>1</mn><mo>+</mo><mn>10</mn><mi>%</mi></mrow></mfrac><mo>=</mo><mn>1</mn><mo>,</mo><mn>000</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{现值}=\frac{1{,}100}{1+10\%}=1{,}000\text{ 万元}</annotation></semantics></math></p>
+<p>一般形式：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">第 </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 期现金流现值</mtext></mrow><mo>=</mo><mfrac><mrow><mrow><mtext mathvariant="normal">第 </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 期现金流</mtext></mrow></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">C</mi></mrow><msup><mo stretchy="false" form="postfix">)</mo><mi>t</mi></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{第 }t\text{ 期现金流现值}=\frac{\text{第 }t\text{ 期现金流}}{(1+\mathrm{WACC})^t}</annotation></semantics></math></p>
+<hr />
+<h3 id="dcfdiscounted-cash-flow现金流折现法">8.4 DCF，Discounted Cash
+Flow，现金流折现法</h3>
+<p><strong>一句话：</strong><br />
+DCF 是把未来自由现金流折算成今天的价值。</p>
+<p>使用 FCFF 时：</p>
+<pre class="text"><code>未来 FCFF
+  ↓ 使用 WACC 折现
+企业价值 EV
+  ↓ 减有息债务、加现金
+股权价值</code></pre>
+<hr />
+<h3 id="dcf-简单例子">8.5 DCF 简单例子</h3>
+<p>预测禾味餐厅未来 FCFF：</p>
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th style="text-align: right;">FCFF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 年</td>
+<td style="text-align: right;">1,000</td>
+</tr>
+<tr>
+<td>第 2 年</td>
+<td style="text-align: right;">1,200</td>
+</tr>
+<tr>
+<td>第 3 年</td>
+<td style="text-align: right;">1,400</td>
+</tr>
+</tbody>
+</table>
+<p>假设：</p>
+<ul>
+<li>WACC：10%；</li>
+<li>永续增长率：3%。</li>
+</ul>
+<h4 id="第一步计算终值">第一步：计算终值</h4>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">终值 TV</mtext><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">第 3 年 FCFF</mtext><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mtext mathvariant="normal">永续增长率</mtext><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">C</mi></mrow><mo>−</mo><mtext mathvariant="normal">永续增长率</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{终值 TV}=\frac{\text{第 3 年 FCFF}\times(1+\text{永续增长率})}{\mathrm{WACC}-\text{永续增长率}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">终值 TV</mtext><mo>=</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>400</mn><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mn>3</mn><mi>%</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mn>10</mn><mi>%</mi><mo>−</mo><mn>3</mn><mi>%</mi></mrow></mfrac><mo>=</mo><mn>20</mn><mo>,</mo><mn>600</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{终值 TV}=\frac{1{,}400\times(1+3\%)}{10\%-3\%}=20{,}600\text{ 万元}</annotation></semantics></math></p>
+<p>必须满足：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">W</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">C</mi></mrow><mo>&gt;</mo><mtext mathvariant="normal">永续增长率</mtext></mrow><annotation encoding="application/x-tex">\mathrm{WACC}&gt;\text{永续增长率}</annotation></semantics></math></p>
+<h4 id="第二步折现到今天">第二步：折现到今天</h4>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">企业价值 EV</mtext><mo>=</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>000</mn></mrow><mn>1.1</mn></mfrac><mo>+</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>200</mn></mrow><msup><mn>1.1</mn><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><mrow><mn>1</mn><mo>,</mo><mn>400</mn><mo>+</mo><mn>20</mn><mo>,</mo><mn>600</mn></mrow><msup><mn>1.1</mn><mn>3</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\text{企业价值 EV}=\frac{1{,}000}{1.1}+\frac{1{,}200}{1.1^2}+\frac{1{,}400+20{,}600}{1.1^3}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">企业价值 EV</mtext><mo>≈</mo><mn>18</mn><mo>,</mo><mn>430</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{企业价值 EV}\approx18{,}430\text{ 万元}</annotation></semantics></math></p>
+<h4 id="第三步计算股权价值">第三步：计算股权价值</h4>
+<p>假设：</p>
+<ul>
+<li>有息债务：5,000；</li>
+<li>现金及现金等价物：1,500。</li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">股权价值</mtext><mo>=</mo><mn>18</mn><mo>,</mo><mn>430</mn><mo>−</mo><mn>5</mn><mo>,</mo><mn>000</mn><mo>+</mo><mn>1</mn><mo>,</mo><mn>500</mn><mo>=</mo><mn>14</mn><mo>,</mo><mn>930</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{股权价值}=18{,}430-5{,}000+1{,}500=14{,}930\text{ 万元}</annotation></semantics></math></p>
+<h4 id="对估值的影响-5">对估值的影响</h4>
+<ul>
+<li>未来 FCFF 越高，估值越高；</li>
+<li>WACC 越高，估值越低；</li>
+<li>永续增长率越高，估值越高；</li>
+<li>DCF 对预测和参数非常敏感，因此通常要做敏感性分析。</li>
+</ul>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="cfs-dcf"></a></p>
+<h2 id="cfs-与-dcf-的关系">9. 🌊 CFS 与 DCF 的关系</h2>
+<h3 id="cfs">CFS</h3>
+<p><strong>一句话：</strong><br />
+CFS 不是像 DCF
+一样具有唯一含义的标准估值缩写；它可能指现金流量表，也可能是公司项目中现金流预测模型或工作簿的名称。</p>
+<h3 id="dcf">DCF</h3>
+<p><strong>一句话：</strong><br />
+DCF 是把未来现金流折现为当前价值的标准估值方法。</p>
+<p>如果本项目中的 CFS 确实指现金流估值模型，可以理解为：</p>
+<pre class="text"><code>CFS 模型
+=
+收入和成本预测
++
+三张报表预测
++
+FCFF 或 FCFE
++
+DCF 折现
++
+企业价值或股权价值输出</code></pre>
+<p>所以：</p>
+<blockquote>
+<p>CFS 可能是项目中的模型或工作簿名称；<br />
+DCF 是这套模型背后的估值方法。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ 最终仍应查看公司内部模型中 CFS 的完整英文名称。</p>
+</blockquote>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<p><a id="model-comparison"></a></p>
+<h2 id="常见估值方法对比">10. 🔄 常见估值方法对比</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>方法</th>
+<th>主要输入</th>
+<th>首先得到</th>
+<th>更适合什么企业</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P/B</td>
+<td>调整后净资产 × P/B</td>
+<td>股权价值</td>
+<td>银行、保险、重资产企业</td>
+</tr>
+<tr>
+<td>P/S</td>
+<td>营业收入 × P/S</td>
+<td>股权价值</td>
+<td>高增长、暂未盈利企业</td>
+</tr>
+<tr>
+<td>EV/Sales</td>
+<td>营业收入 × EV/Sales</td>
+<td>企业价值 EV</td>
+<td>资本结构差异较大的企业</td>
+</tr>
+<tr>
+<td>DCF</td>
+<td>未来自由现金流</td>
+<td>企业价值 EV 或股权价值</td>
+<td>现金流可以合理预测的企业</td>
+</tr>
+<tr>
+<td>CFS</td>
+<td>视公司内部定义而定</td>
+<td>通常为现金流预测及估值输出</td>
+<td>以内部模型说明为准</td>
+</tr>
+</tbody>
+</table>
+<h3 id="从公司估值到基金-nav">10.1 从公司估值到基金 NAV</h3>
+<p>在资本结构简单、各类股份经济权利相同的情况下：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">基金持有股权价值</mtext><mo>=</mo><mtext mathvariant="normal">被投企业股权价值</mtext><mo>×</mo><mtext mathvariant="normal">基金完全摊薄持股比例</mtext></mrow><annotation encoding="application/x-tex">\text{基金持有股权价值}=\text{被投企业股权价值}\times\text{基金完全摊薄持股比例}</annotation></semantics></math></p>
+<p>例如，被投企业股权价值为 20,000 万元，基金完全摊薄后持股 15%：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">基金持有股权价值</mtext><mo>=</mo><mn>20</mn><mo>,</mo><mn>000</mn><mo>×</mo><mn>15</mn><mi>%</mi><mo>=</mo><mn>3</mn><mo>,</mo><mn>000</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 万元</mtext></mrow></mrow><annotation encoding="application/x-tex">\text{基金持有股权价值}=20{,}000\times15\%=3{,}000\text{ 万元}</annotation></semantics></math></p>
+<p>把基金持有的所有项目价值、其他资产和负债汇总后，就可以计算基金
+NAV。</p>
+<blockquote>
+<p>⚠️
+如果存在优先股、清算优先权、反稀释条款、期权池或复杂可转换工具，不能只按持股比例直接相乘。</p>
+</blockquote>
+<hr />
+<p><a href="#top">⬆️ 返回快速索引</a></p>
+<hr />
+<blockquote>
+<p>🎯 <strong>一句话总结：</strong><br />
+私募股权估值就是先读懂公司财务数据，再用市场倍数或未来现金流估出公司价值，最后计算基金持有部分值多少钱，并更新
+NAV 和投资回报指标。</p>
+</blockquote>
+</body>
+</html>
